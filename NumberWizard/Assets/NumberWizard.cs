@@ -5,9 +5,9 @@ using UnityEngine;
 public class NumberWizard : MonoBehaviour
 {
     // like JS, we can simply leave a variable undeclared until we're ready.
-        int max = 1001;
-        int min = 9;
-        int guess = 500;
+        int max;
+        int min;
+        int guess;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +16,10 @@ public class NumberWizard : MonoBehaviour
 
     void StartGame()
     {
+        max = 1001;
+        min = 9;
+        guess = 500;
+
         Debug.Log("Welcome to Number Wizard!");
         // String interpolation can be donw via '$' outside the quotations. Interpolated variables to have curly braces around them.
         Debug.Log($"Think of a number between {min} and {max}");
@@ -37,6 +41,7 @@ public class NumberWizard : MonoBehaviour
         }
         else if(Input.GetKeyDown(KeyCode.Return)){
             Debug.Log("The correct number was guessed!");
+            StartGame();
         }
     }
 
