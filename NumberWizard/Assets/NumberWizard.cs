@@ -11,6 +11,11 @@ public class NumberWizard : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StartGame();
+    }
+
+    void StartGame()
+    {
         Debug.Log("Welcome to Number Wizard!");
         // String interpolation can be donw via '$' outside the quotations. Interpolated variables to have curly braces around them.
         Debug.Log($"Think of a number between {min} and {max}");
@@ -24,16 +29,20 @@ public class NumberWizard : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.UpArrow)){
             min = guess;
-            guess = (max + min)/2;
-            Debug.Log($"Is it higher or lower than {guess}?");
+            NextGuess();
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow)){
             max = guess;
-            guess = (max + min)/2;
-            Debug.Log($"Is it higher or lower than {guess}?");
+            NextGuess();
         }
         else if(Input.GetKeyDown(KeyCode.Return)){
             Debug.Log("The correct number was guessed!");
         }
+    }
+
+    void NextGuess()
+    {
+        guess = (max + min)/2;
+        Debug.Log($"Is it higher or lower than {guess}?");
     }
 }
