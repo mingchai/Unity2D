@@ -12,4 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adbfee0dab6419f459e40313dd66d844, type: 3}
   m_Name: Scientist
   m_EditorClassIdentifier: 
-  storyText: 
+  storyText: 'The scientist stares at you in an odd way.
+
+
+    1) Enter the Hallway
+
+    2) Turn Around and Go Back...'
+  nextStates:
+  - {fileID: 11400000, guid: 740c31d88a2cdd847bb8d4e103fa83be, type: 2}
+  - {fileID: 11400000, guid: 3e504b2852dd47e42801e52cae9f3574, type: 2}

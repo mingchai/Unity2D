@@ -19,3 +19,6 @@ MonoBehaviour:
     A) Proceed down the hallway
 
     B) Ask the man in the lab coat about what''s going on.'
+  nextStates:
+  - {fileID: 11400000, guid: 740c31d88a2cdd847bb8d4e103fa83be, type: 2}
+  - {fileID: 11400000, guid: f91569622226c524d9fdf4e1bcb9c3c3, type: 2}

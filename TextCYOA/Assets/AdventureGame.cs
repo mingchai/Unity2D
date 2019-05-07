@@ -19,6 +19,24 @@ public class AdventureGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        ManageState();
+    }
+
+    private void ManageState()
+    {
+        var nextState = state.GetNextStates();
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            state = nextState[0];
+        } 
+        else if(Input.GetKeyDown(KeyCode.Alpha2)) 
+        {
+            state = nextState[1];
+        }
+        else if(Input.GetKeyDown(KeyCode.Alpha3)) 
+        {
+            state = nextState[2];
+        }
+        textComponent.text = state.GetStateStory();
     }
 }

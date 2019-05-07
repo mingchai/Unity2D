@@ -16,7 +16,7 @@ public class State : ScriptableObject
         // When this method is executed, we are returned what's in the textbox of storyText (look in th editor/inspector)
     }
 
-    public State[] GetNextState(){
+    public State[] GetNextStates(){
         return nextStates;
     }
 }
