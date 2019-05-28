@@ -13,12 +13,13 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: 
   storyText: 'This is the starting state for players. They will now make a choice
-    between A and B
+    between 1 and 2
 
 
-    A) Proceed down the hallway
+    1) Proceed down the hallway
 
-    B) Ask the man in the lab coat about what''s going on.'
+    2) Ask the man in the lab coat about what''s going on.'
   nextStates:
   - {fileID: 11400000, guid: 740c31d88a2cdd847bb8d4e103fa83be, type: 2}
   - {fileID: 11400000, guid: f91569622226c524d9fdf4e1bcb9c3c3, type: 2}
+  - {fileID: 11400000, guid: 7c5498494e0e44ff3850cac4e4c446e0, type: 2}

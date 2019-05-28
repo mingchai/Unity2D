@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adbfee0dab6419f459e40313dd66d844, type: 3}
   m_Name: Game Over
   m_EditorClassIdentifier: 
-  storyText: 'Choices were made, fun was had (hopefully). Want to give it another
-    shot?
+  storyText: 'GAME OVER
+
+
+    Choices were made, fun was had (hopefully). Want to give it another shot?
 
 
     1) I''ll take another swing at it!

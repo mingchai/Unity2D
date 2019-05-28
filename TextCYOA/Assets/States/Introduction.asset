@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adbfee0dab6419f459e40313dd66d844, type: 3}
   m_Name: Introduction
   m_EditorClassIdentifier: 
-  storyText: Welcome to the very first iteration of a game that will eventually be
-    made. Maybe... Here's hoping!
+  storyText: 'Welcome to the very first iteration of a game that will eventually be
+    made. Maybe... Here''s hoping!
+
+
+    Press 1 to continue...'
   nextStates:
   - {fileID: 11400000, guid: 3e504b2852dd47e42801e52cae9f3574, type: 2}
