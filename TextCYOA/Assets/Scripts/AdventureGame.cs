@@ -8,6 +8,7 @@ public class AdventureGame : MonoBehaviour
     // [SerializeField] makes the variable available in the inspector, so textComponent is then available back in Unity under the game object it's attached to
     [SerializeField] State startingState;
     State state;
+    int count = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,15 +29,19 @@ public class AdventureGame : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
             state = nextState[0];
+            count++;
         } 
         else if(Input.GetKeyDown(KeyCode.Alpha2)) 
         {
             state = nextState[1];
+            count++;
         }
-        else if(Input.GetKeyDown(KeyCode.Alpha3)) 
+        
+        if(count == 10) 
         {
             state = nextState[2];
         }
+
         textComponent.text = state.GetStateStory();
     }
 }
