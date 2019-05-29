@@ -37,6 +37,7 @@ public class AdventureGame : MonoBehaviour
 
             if(count == 10){
                 state = nextState[2];
+                count = 0;
             }
         }
         
