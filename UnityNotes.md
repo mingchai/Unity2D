@@ -6,6 +6,8 @@ Types don't have to be specified for variables so long as the language knows wha
 ## Getting Player Input
 * use _Input.GetKeyDown(KeyCode.XXX)_ to register keyboard input
   * refer to the documentation to determine the proper keycode (https://docs.unity3d.com/ScriptReference/KeyCode.html)
+* we can cause the game to close if we assign an input that executes the following when pressed _Application.Quit()_
+  * Note that this will only work in the production build of the game and not in the editor.
 
 ## Asset Hierarchy
 The list is read from the top-down. Those higher on the list are rendered first with the items that follow being rendered on top. Because of this, you would want to set your background, then put assets, like buttons, below/underneath.
@@ -67,3 +69,32 @@ public class State : ScriptableObject{
 ```
 
 * [CreateAssetMenu(menuName = "State)] does what you might think - it creates a menu item called state that is available when you right-click in the _Assets_ folder in Unity.
+
+## Public Methods and Return Types
+ ``` private void StartGame() ```
+ _Access Modifier | Return Value | Method Name | Parameters_
+
+ * The access modifiers are __private by default__
+  * private methods are available in the class only, not globally; other functions can't call the private method
+ * _void_ means it returns nothing
+  * if there is a return type (e.g. 'string', 'int', etc.), that means we get data back from the function
+ * everything else is like a JS or Ruby method/function (i.e. name of the method and the arguments it takes)
+
+ ## Arrays
+ * denote that you are using an array with square brackets __[]__
+  * you can specify the type of data in the array with _'string'_, _'int'_, etc.
+
+### Managing Packages
+_Window_ -> _Package Manager_ to access various packages like TMP (if it's not already installed for some reason or if you need to reinstall the package.)
+
+## For Loops
+* Basically like JS for loops with incrementors,conditions, etc.
+  * instead of __'let i = 0;'__ we'd put __'int i = 0;'__; the rest of the loop syntax is the same.
+  * the _'.Length'_ property requires a capitalized L - don't forget!
+
+## Building and Deploying Your Game
+1. change the aspect ratio to __16:9 or any ratio that's appropriate__ rather than a fixed screen size in pixels. This allows the game to run in an aspect ratio that will fit most any screen.
+2. Ensure the right build support is installed (e.g. WebGL, Android, etc.)
+3. _File_ -> _Build Settings_ -> _Build and Run_
+  * If the _Build and Run_ button is grayed out for your selected platform, you can usually click on the desired platform and then press _Switch Platform_ to have the option open up for you
+4. Once the build completes, expect to see a locally hosted version available for preview. If everything looks good, you can now use zip and upload the build file to your desired marketplace, website, etc. to have the game deployed.
