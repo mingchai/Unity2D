@@ -10,4 +10,8 @@ public class SceneLoader : MonoBehaviour
         // returns the build index value from the SceneManager class' GetActiveScene method
         SceneManager.LoadScene(currentSceneIndex + 1);
     }
+
+    public void LoadStartScene(){
+        SceneManager.LoadScene(0);
+    }
 }
