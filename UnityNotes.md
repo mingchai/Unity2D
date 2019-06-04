@@ -98,3 +98,9 @@ _Window_ -> _Package Manager_ to access various packages like TMP (if it's not a
 3. _File_ -> _Build Settings_ -> _Build and Run_
   * If the _Build and Run_ button is grayed out for your selected platform, you can usually click on the desired platform and then press _Switch Platform_ to have the option open up for you
 4. Once the build completes, expect to see a locally hosted version available for preview. If everything looks good, you can now use zip and upload the build file to your desired marketplace, website, etc. to have the game deployed.
+
+## Loading the next scene on button click
+* create an empty game object
+* give it a script component
+* in the script, use namespace SceneManagement; use appropriate methods to get the scene index value
+* load the new game object that was created into the component that will have the event handler to handle the transition to the next scene.
