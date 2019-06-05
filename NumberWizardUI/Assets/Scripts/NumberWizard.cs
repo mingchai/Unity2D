@@ -35,6 +35,6 @@ public class NumberWizard : MonoBehaviour
     void NextGuess()
     {
         guess = Random.Range(min, max);
-        var guessedNumber = guessText.text = guess.ToString();
+        guessText.text = guess.ToString();
     }
 }
