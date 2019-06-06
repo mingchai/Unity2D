@@ -104,3 +104,13 @@ _Window_ -> _Package Manager_ to access various packages like TMP (if it's not a
 * give it a script component
 * in the script, use namespace SceneManagement; use appropriate methods to get the scene index value
 * load the new game object that was created into the component that will have the event handler to handle the transition to the next scene.
+
+## Rigidbody & Colliders
+* For 2D, use the _Rigidbody 2D_ component with your game object
+  * 3 different options for the __body type__ with the _Rigidbody 2D_:
+    * __Dynamic__ - this is the most common option; think things that should bounce around the environment
+    * __Kinematic__ - this option is best for objects that will be controlled by the player and will act like immovable objects on collision (i.e. they won't go veering off course when hit by a particle effect)
+    * __Static__ - this is for objects that shouldn't move in the game environment (i.e. not subject to things like gravity) and will also act like immovable objects on collision. Think walls, floors, etc. of levels
+
+* in addition to RigidBody 2D, we will also want to use _colliders_ for collision detection!
+  * there a few varients to fit the types of sprites you might have in your game including circle, box, and polygon. This will provide Unity's best estimate of the edges of your sprite will put a collision detection field around the sprite. This can be modified to fit your sprite just right.
