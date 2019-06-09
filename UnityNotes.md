@@ -114,3 +114,10 @@ _Window_ -> _Package Manager_ to access various packages like TMP (if it's not a
 
 * in addition to RigidBody 2D, we will also want to use _colliders_ for collision detection!
   * there a few varients to fit the types of sprites you might have in your game including circle, box, and polygon. This will provide Unity's best estimate of the edges of your sprite will put a collision detection field around the sprite. This can be modified to fit your sprite just right.
+
+* we can set a collider's _'is trigger'_ property to true to allow an object to pass through a colllider while triggering an event. This would be handy for things like when a player runs over a switch, an object passes the player to trigger a game over screen, etc.
+
+__Collision and Collider Behaviours__
+![Behaviour Chart](/CollisionColliderBahviour.png)
+
+  ##
