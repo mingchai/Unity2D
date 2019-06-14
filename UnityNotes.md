@@ -120,4 +120,18 @@ _Window_ -> _Package Manager_ to access various packages like TMP (if it's not a
 __Collision and Collider Behaviours__
 ![Behaviour Chart](/CollisionColliderBahviour.png)
 
-  ##
+__Trigger Colliders__ will allow for events to be triggered and won't block other game objects (i.e. no physics effects like bounce or friction).
+* Trigger colliders don't need to be placed on a RigidBody
+* Don't need to be the same size as the game object they're placed on
+
+###### One Way to Add Launch Effect to Game Objects
+``` 
+  GetComponent<RigidBody2D>().velocity = new Vector2(-3f, 10f)
+  // this will cause the game object to move up and to the left
+  GetComponent<RigidBody2D>().velocity = new Vector2(2f, 15f)
+  // this would cause the game object to move up and to the right
+```
+
+## Camera Sizes and Game Units
+* Game units will be floats rather than integers
+* Gameplay window will be double the specified units of the camera size (e.g. 6 game units = 12 unit gameplay window)
