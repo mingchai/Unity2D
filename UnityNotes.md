@@ -135,3 +135,21 @@ __Trigger Colliders__ will allow for events to be triggered and won't block othe
 ## Camera Sizes and Game Units
 * Game units will be floats rather than integers
 * Gameplay window will be double the specified units of the camera size (e.g. 6 game units = 12 unit gameplay window)
+
+## Prefabs
+* an alternative to manually duplicating the asset (i.e. with _CMD + D_)
+  * by altering the prefab, all instantiated objects will be updated accordingly
+  * if you update an instance, then press _Apply_ it will update the prefab and the remaining unaltered instances, though this does not apply to all attributes (e.g. position is always updated locally). Other altered instances will not be affected.
+    * the updated properties/attributes will be bolded in the inspector to show what's been changed
+* you can use prefab'd assets to construct other scenes/levels to save development time
+  * think wall, floor, and obstacle assets when there is continuity required between rooms in a level
+
+__Creating Prefabs__
+1. Create a __Prefabs__ folder in the assets folder
+2. Drag asset into the _Prefabs_ folder
+3. Instantiate by either dragging into the hierarchy or the scene (objects will be blue in the heirarchy)
+
+__Altering Snap Settings__
+go to _Edit_ -> _Snap Settings..._
+* This allows you to alter the number of units the assets move when making minor position adjustments by holdingt __CTRL__ and moving the mouse.
+* Hold _V_ to change the vertex so that the object will snap to other objects based on the selected vertex.
