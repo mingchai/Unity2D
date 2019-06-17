@@ -153,3 +153,19 @@ __Altering Snap Settings__
 go to _Edit_ -> _Snap Settings..._
 * This allows you to alter the number of units the assets move when making minor position adjustments by holdingt __CTRL__ and moving the mouse.
 * Hold _V_ to change the vertex so that the object will snap to other objects based on the selected vertex.
+
+## Audio Terminology
+* __Audio Listener__ - hearing the sound
+* __Audio Source__ - playing the sound
+* __Audio Clip__ - the sound itself
+
+To add sounds to the game, add an _Audio Source_ component to the object that needs to produce the sound.
+
+The _Play On Awake_ tickbox will play the sound assigned on the component as soon as the game starts
+When scripting audio, you have the option to either use the __Play()__ or __PlayOneShot()__ method. The primary difference is that _PlayOneShot_ will play the entire audio clip, uninterrupted (though other sounds can be played over it), whereas _Play_ will allow for the sound to be cutoff during playback.
+
+As an alternative to the above methods, there is the __PlayClipAtPoint()__ methods available for Audio Source components. This allows us to create an audio source separate from the game object (i.e. attach it to the scene instead), then destroy it once it has played. We need this because when a game object is destroyed, the audio source component that is attached to the object is deleted before it can play the sound.
+
+When using the above method, note that there is a _One Shot Audio_ object that is created in the hierarchy when the sound plays. As soon as the clip is done playing, the object is deleted from the hierarchy. 
+
+Additionally, when using this method, you need to supply it with a __3D vector__ so that is knows where the sound is coming from. This is important to know as we would likely not get the audio quality we are looking for if we attach it to a particular game object which may be far away or too close to the Audio Listener component or we may even hear the sound in the left or right speaker only due to the game object's position in space.
