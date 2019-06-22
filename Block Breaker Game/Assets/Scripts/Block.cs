@@ -5,6 +5,15 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {
     [SerializeField] AudioClip blockSound;
+
+     Level level;
+    // Start is called before the first frame update
+    private void Start()
+    {
+     level = FindObjectOfType<Level>();
+    //  find the Level-class object whenever we refer to the level variable. End result is the same as if we were to serialize the level variable, then drag the Level script into the serialized field in the editor.
+    level.CountBreakableBlocks();
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         AudioSource.PlayClipAtPoint(blockSound, Camera.main.transform.position);
