@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    // config params
     [SerializeField] Paddle paddle1;
     [SerializeField] float xPush = 2f, yPush = 15f;
-    [SerializeField] AudioClip [] ballSounds;
-    // state
+    [SerializeField] AudioClip[] ballSounds;
+
+    // State
     Vector2 paddleToBallVector;
     bool hasStarted = false;
 
@@ -17,47 +17,40 @@ public class Ball : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        paddleToBallVector = transform.position - paddle1.transform.position;
-        // "Keep the ball above the paddle by X units" - the difference between the position of the ball & the position of the paddle, based on our putting the ball above the paddle in the editor.
-
-        myAudioSource = GetComponent<AudioSource>();
+      paddleToBallVector = transform.position - paddle1.transform.position;
+      myAudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
-    {
-        if(!hasStarted){
-            LaunchOnClick();
-            LockBallToPaddle();
-        }
+  {
+    if(!hasStarted){
+      Debug.Log($"hasStarted ={hasStarted}");
+      LockBallToPaddle();
+      LaunchOnMouseClick();
     }
+  }
 
-    private void LockBallToPaddle()
-    {
-        Vector2 paddlePos = new Vector2(paddle1.transform.position.x, paddle1.transform.position.y);
-        transform.position = paddleToBallVector + paddlePos;
-        // "Change the position of the ball as the paddle moves" - the paddle will only have it's x-coordinate changing, so just update the x-coordinate as the paddle moves. We still include the y-coordinate as the expected value is a vector
+  private void LaunchOnMouseClick()
+  {
+    if(Input.GetMouseButtonDown(0)){
+      hasStarted = true;
+      GetComponent<Rigidbody2D>().velocity = new Vector2(2f, 15f);
     }
+  }
 
-    private void LaunchOnClick(){
-        if(
-            Input.GetMouseButtonDown(0)
-            // register input from left-click
-        )
-        {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(xPush, yPush);
-            // access Rigidbody component's velocity property and assign it a new Vector object that will launch the ball to the right and up
-            hasStarted = true;
-        }
-    }
+  private void LockBallToPaddle()
+  {
+    Vector2 paddlePos = new Vector2(paddle1.transform.position.x, paddle1.transform.position.y);
+    transform.position = (paddlePos + paddleToBallVector);
+  }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(hasStarted)
-        {
-            AudioClip clip = ballSounds[UnityEngine.Random.Range(0,ballSounds.Length)];
-            myAudioSource.PlayOneShot(clip);
-            // Access the Audio Source component then utilize the Play method
-        }
+  private void OnCollisionEnter2D(Collision2D collision)
+  {
+    if(hasStarted){
+      AudioClip clip = ballSounds[Random.Range(0, ballSounds.Length)];
+      myAudioSource.PlayOneShot(clip);
+      // PlayOneShot ensures the audio plays all the way through rather than getting interrupted, which Play() allows
     }
+  }
 }
