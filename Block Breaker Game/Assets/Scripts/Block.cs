@@ -8,12 +8,12 @@ public class Block : MonoBehaviour
 
     // cached reference
     Level level;
-    GameStatus gameStatus;
+    GameSession gameStatus;
 
     private void Start(){
         level = FindObjectOfType<Level>();
         level.CountBreakableBlocks();
-        gameStatus = FindObjectOfType<GameStatus>();
+        gameStatus = FindObjectOfType<GameSession>();
     }
     
    private void OnCollisionEnter2D(Collision2D collision)
@@ -23,7 +23,7 @@ public class Block : MonoBehaviour
 
   private void DestroyBlock()
   {
-    gameStatus.AddToScore();
+    FindObjectOfType<GameSession>().AddToScore();
     AudioSource.PlayClipAtPoint(blockCollisionSound, Camera.main.transform.position);
     Destroy(gameObject);
     level.BlockDestroyed();
