@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockCollisionSound: {fileID: 8300000, guid: 3808b5ae2782942108460873b3190f7e, type: 3}
+  blockSparklesVFX: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c, type: 3}
 --- !u!82 &3640119522337859067
 AudioSource:
   m_ObjectHideFlags: 0
