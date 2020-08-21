@@ -25,10 +25,15 @@ public class Block : MonoBehaviour
 
   private void DestroyBlock()
   {
-    FindObjectOfType<GameSession>().AddToScore();
-    AudioSource.PlayClipAtPoint(blockCollisionSound, Camera.main.transform.position);
+    PlaySoundOnBlockDestroy();
     Destroy(gameObject);
     level.BlockDestroyed();
+  }
+
+  private void PlaySoundOnBlockDestroy()
+  {
+    FindObjectOfType<GameSession>().AddToScore();
+    AudioSource.PlayClipAtPoint(blockCollisionSound, Camera.main.transform.position);
   }
 
   private void TriggerSparklesVFX()
