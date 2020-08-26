@@ -6,7 +6,6 @@ public class Block : MonoBehaviour
 {
   [SerializeField] AudioClip blockCollisionSound;
   [SerializeField] GameObject blockSparklesVFX;
-  [SerializeField] int maxHits;
   int timesHit;
   [SerializeField] Sprite[] hitSprites;
 
@@ -41,6 +40,7 @@ public class Block : MonoBehaviour
   private void HandleHit()
   {
     timesHit++;
+    int maxHits = hitSprites.Length + 1;
     if (timesHit >= maxHits)
     {
       DestroyBlock();
