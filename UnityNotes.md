@@ -198,3 +198,19 @@ As an alternative to the above methods, there is the **PlayClipAtPoint()** metho
 When using the above method, note that there is a _One Shot Audio_ object that is created in the hierarchy when the sound plays. As soon as the clip is done playing, the object is deleted from the hierarchy.
 
 Additionally, when using this method, you need to supply it with a **3D vector** so that is knows where the sound is coming from. This is important to know as we would likely not get the audio quality we are looking for if we attach it to a particular game object which may be far away or too close to the Audio Listener component or we may even hear the sound in the left or right speaker only due to the game object's position in space.
+
+## Singletons
+
+A design pattern that's commonly referred to as an "anti-pattern". It allows us to have a single object that's globally referenced. It is also designed to destroy any other instances of itself so that there will only be one instance that's referenced throughout. We can use this to transfer a player's score from scene to scene.
+
+With the Block Breaker game, it will attempt to instantiate the player's score in each scene which would render the players score as 0 as they move to the next level rather than utilizing the score from the previous level.
+
+## Instantiate
+
+A Unity scripting method that allows you to create a game object through code. Several 'overloads' are available to provide the method with more details on how you would like to instantiate your game object (e.g. position, rotation, etc.).
+
+## Tags in Unity
+
+Within the Assets folder, you'll have the ability to add tags via the inspector. There are some premade tags, but you can add custom ones via _Add Tag_ and give them custom names.
+
+With these tags, you can then use them in scripts to evaluate what tags are present and what behaviour should occur (e.g. if (tag == 'breakable'){do something...}.
