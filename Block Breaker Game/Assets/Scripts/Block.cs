@@ -35,7 +35,7 @@ public class Block : MonoBehaviour
     {
       HandleHit();
     }
-    
+
   }
 
   private void HandleHit()
@@ -47,16 +47,23 @@ public class Block : MonoBehaviour
     }
     else
     {
-        ShowNextHitSprite();
+      ShowNextHitSprite();
     }
   }
 
   private void ShowNextHitSprite()
   {
     int spriteIndex = timesHit - 1;
-    GetComponent<SpriteRenderer>().sprite = hitSprites[spriteIndex];
+    if (hitSprites[spriteIndex] != null)
+    {
+      GetComponent<SpriteRenderer>().sprite = hitSprites[spriteIndex];
+    }
+    else
+    {
+      Debug.LogError($"Block sprite is missing from array. Check {gameObject.name}");
+    }
   }
-  
+
   private void DestroyBlock()
   {
     PlaySoundOnBlockDestroy();
