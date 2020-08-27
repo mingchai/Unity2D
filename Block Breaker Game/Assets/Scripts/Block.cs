@@ -32,7 +32,6 @@ public class Block : MonoBehaviour
   {
     if (tag == "Breakable")
     {
-      gameStatus.AddToScore();
       HandleHit();
     }
 
@@ -75,7 +74,7 @@ public class Block : MonoBehaviour
 
   private void PlaySoundOnBlockDestroy()
   {
-    FindObjectOfType<GameSession>().AddToScore();
+    gameStatus.AddToScore();
     AudioSource.PlayClipAtPoint(blockCollisionSound, Camera.main.transform.position);
   }
 
