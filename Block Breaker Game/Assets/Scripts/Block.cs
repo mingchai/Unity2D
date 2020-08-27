@@ -32,6 +32,7 @@ public class Block : MonoBehaviour
   {
     if (tag == "Breakable")
     {
+      gameStatus.AddToScore();
       HandleHit();
     }
 
