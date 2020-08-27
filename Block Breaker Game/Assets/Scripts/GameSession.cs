@@ -9,6 +9,8 @@ public class GameSession : MonoBehaviour
     [Range(0.1f, 10f)] [SerializeField] float gameSpeed = 1f;
     [SerializeField] int pointsPerBlock = 10;
     [SerializeField] TextMeshProUGUI scoreText;
+    // We serialize isAutoPlayEnabled to ensure that the Paddle object can't accidentally manipulate this value (which would happen if it was made a public variable)
+    [SerializeField] bool isAutoPlayEnabled;
 
     // State Variables
     [SerializeField] int currentScore = 0;
@@ -44,5 +46,10 @@ public class GameSession : MonoBehaviour
     public void ResetScore()
     {
         Destroy(gameObject);
+    }
+
+    public bool IsAutoPlayEnabled()
+    {
+        return isAutoPlayEnabled;
     }
 }
