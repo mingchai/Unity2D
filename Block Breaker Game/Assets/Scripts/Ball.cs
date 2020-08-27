@@ -4,27 +4,30 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    [SerializeField] Paddle paddle1;
-    [SerializeField] float xPush = 2f, yPush = 15f;
-    [SerializeField] AudioClip[] ballSounds;
+  [SerializeField] Paddle paddle1;
+  [SerializeField] float xPush = 2f, yPush = 15f, randomFactor = 0.2f;
+  [SerializeField] AudioClip[] ballSounds;
 
-    // State
-    Vector2 paddleToBallVector;
-    bool hasStarted = false;
+  // State
+  Vector2 paddleToBallVector;
+  bool hasStarted = false;
 
-    // Cached component references
-    AudioSource myAudioSource;
-    // Start is called before the first frame update
-    void Start()
-    {
-      paddleToBallVector = transform.position - paddle1.transform.position;
-      myAudioSource = GetComponent<AudioSource>();
-    }
-
-    // Update is called once per frame
-    void Update()
+  // Cached component references
+  AudioSource myAudioSource;
+  Rigidbody2D myRigidBody2D;
+  // Start is called before the first frame update
+  void Start()
   {
-    if(!hasStarted){
+    paddleToBallVector = transform.position - paddle1.transform.position;
+    myAudioSource = GetComponent<AudioSource>();
+    myRigidBody2D = GetComponent<Rigidbody2D>();
+  }
+
+  // Update is called once per frame
+  void Update()
+  {
+    if (!hasStarted)
+    {
       Debug.Log($"hasStarted ={hasStarted}");
       LockBallToPaddle();
       LaunchOnMouseClick();
@@ -33,9 +36,10 @@ public class Ball : MonoBehaviour
 
   private void LaunchOnMouseClick()
   {
-    if(Input.GetMouseButtonDown(0)){
+    if (Input.GetMouseButtonDown(0))
+    {
       hasStarted = true;
-      GetComponent<Rigidbody2D>().velocity = new Vector2(2f, 15f);
+      myRigidBody2D.velocity = new Vector2(2f, 15f);
     }
   }
 
@@ -47,10 +51,16 @@ public class Ball : MonoBehaviour
 
   private void OnCollisionEnter2D(Collision2D collision)
   {
-    if(hasStarted){
+    Vector2 velocityTweak = new Vector2(
+      Random.Range(0f, randomFactor),
+      Random.Range(0f, randomFactor)
+      );
+    if (hasStarted)
+    {
       AudioClip clip = ballSounds[Random.Range(0, ballSounds.Length)];
       myAudioSource.PlayOneShot(clip);
       // PlayOneShot ensures the audio plays all the way through rather than getting interrupted, which Play() allows
+      myRigidBody2D.velocity += velocityTweak;
     }
   }
 }
